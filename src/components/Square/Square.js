@@ -10,8 +10,10 @@ class Square extends React.Component {
     }
     
     render() {
+      const winningSquares = this.props.winningSquares;
+      const squareKey = this.props.squareKey;
       return (
-        <button className="square" onClick={() => this.props.onClick()}>
+        <button className={"square " + ((winningSquares.indexOf(squareKey) > -1) ? ' winning-squares' : '')} onClick={() => this.props.onClick()}>
             {this.props.value}
         </button>
       );

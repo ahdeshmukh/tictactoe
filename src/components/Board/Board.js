@@ -6,9 +6,11 @@ import './Board.css';
 class Board extends React.Component {
     renderSquare(i) {
       return (
-        <Square 
+        <Square key={i}
           value={this.props.squares[i]} 
-          onClick={() => this.props.onClick(i)} />
+          onClick={() => this.props.onClick(i)} 
+          squareKey={i} 
+          winningSquares={this.props.winningSquares} />
         );
     }
 
@@ -19,7 +21,7 @@ class Board extends React.Component {
     }
 
     createBoard = () => {
-      let size = 3;
+      const size = 3;
       let board = [];
       for(let i = 0; i < size; i++) {
         let row = [];
@@ -27,7 +29,7 @@ class Board extends React.Component {
           row.push(this.renderSquare(j))
 
         }
-        board.push(<div className="board-row">{row}</div>)
+        board.push(<div key={i} className="board-row">{row}</div>)
       }
       return board;
     }

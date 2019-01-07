@@ -16,6 +16,10 @@
   .square:focus {
     outline: none;
   }
+
+  .winning-squares {
+    background-color: yellow;
+  }
   
   .kbd-navigation .square:focus {
     background: #ddd;
